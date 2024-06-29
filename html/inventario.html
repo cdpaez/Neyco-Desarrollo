@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- biblioteca para leer archivos de excel y ods-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="/v.1.0.0/css/styles_navbar.css">
+    <link rel="stylesheet" href="/v.1.0.0/css/styles_inventario.css">
+    
+    
+    <title>inventario</title>
+
+</head>
+<body>
+
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/v.1.0.0/html/registro.html">registro</a>
+            </li>
+            <li>
+                <a href="/v.1.0.0/html/inventario.html">inventario</a>
+            </li>
+        </ul>
+    </nav>
+        
+        
+    <main class="grid">
+        
+
+        <div>
+
+
+            <section id="formulario">
+
+
+                <h1>Agregar Producto</h1>
+                <form id="productForm">
+
+
+                    <input type="text" id="codigo" name="codigo" placeholder="codigo">
+    
+                    <input type="text" id="nombre" name="nombre" placeholder="nombre">
+                    
+                    <textarea id="descripcion" name="descripcion" placeholder="descripcion"></textarea>
+                    
+                    <input type="number" id="cantidad" name="cantidad" placeholder="cantidad">
+                    
+                    <input type="number" id="precio" name="precio" placeholder="precio">
+                    
+                    <input type="text" id="proveedor" name="proveedor" placeholder="proveedor">
+                    
+                    <input type="text" id="pais" name="pais" placeholder="pais">
+                    
+                    <button onclick="agregarDatos()" id="btn-agregar">agregar datos</button>
+
+                    <!-- Botón para importar los datos a la base de datos -->
+                    <button onclick="almacenarEnIndexedDB()">Importar a Base de Datos</button>
+                    
+                    <!-- Input para seleccionar el archivo Excel -->
+                    <input type="file" accept=".xlsx, .xls" onchange="seleccionarArchivo(event)">
+                    
+                    
+                    
+                </form>
+    
+    
+            </section>
+
+
+        </div>
+        
+
+        <div class="nested-grid">
+
+            <div>
+
+
+                <section id="busqueda">
+
+
+                    <h1>Buscar Producto por Código</h1>
+                    <input type="text" id="codigoInput" placeholder="Ingrese el código">
+                    <button onclick="buscarProducto()">Buscar</button>
+                     
+                    <h2>Resultados de la Búsqueda</h2>
+                    <table id="searchResultTable">
+                        <thead>
+                            <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Proveedor</th>
+                            <th>País</th>
+                            <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="searchResultTableBody">
+                        </tbody>
+                    </table>
+                    
+                    
+                </section>
+
+
+            </div>
+            
+            
+            <div>
+
+
+                <section id="productos">
+    
+    
+                    <h2>Productos en Inventario</h2>
+                    <table id="productTable">
+                        <thead>
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Proveedor</th>
+                                <th>País</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                            <tbody id="productTableBody">
+                            </tbody>
+                     </table>
+        
+        
+                </section>
+    
+
+            </div>
+            
+        </div>
+        
+            
+    </main>
+
+
+    <footer>
+        <!-- Pie de página de tu página web -->
+        <p>Derechos de Autor © 2024. Todos los derechos reservados.</p>
+    </footer>
+    
+
+    <script src="/v.1.0.0/app/app_inventario.js"></script>
+    <script src="/v.1.0.0/app/app_importarDatos.js"></script>
+    
+</body>
+</html>

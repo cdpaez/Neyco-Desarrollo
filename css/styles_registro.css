@@ -1,0 +1,69 @@
+/*ajustes generales*/
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la altura de la ventana del navegador */
+  margin: 0;
+}
+main {
+  flex: 1; /* El contenido principal (main) ocupará el espacio restante */
+}
+footer {
+  flex-shrink: 0; /* Evita que el footer se reduzca en tamaño si el contenido es más largo */
+}
+
+/*ajustes especificos*/
+
+main {
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+form {
+  display: grid;
+  grid-gap: 15px;
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+}

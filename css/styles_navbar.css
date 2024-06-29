@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+nav {
+    display: flex;
+    width: 100%;
+    background-color: #3aa5c5;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+}
+nav li {
+    margin-left: 1rem;
+}
+nav a {
+    font-size: 24px;
+    font-family: monospace;
+    text-decoration: none;
+    color: #feecb4;
+}
+nav a:hover {
+    height: 100%;
+    background-color: salmon;
+}

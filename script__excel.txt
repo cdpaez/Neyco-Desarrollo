@@ -1,0 +1,50 @@
+let script = document.createElement('script');
+script.src = 'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js';
+document.head.appendChild(script);
+
+// Asegúrate de que SheetJS esté cargado antes de ejecutar este código.
+// Reemplaza 'nombreBaseDeDatos' y 'nombreObjetoAlmacenamiento' con tus propios nombres.
+let dbName = 'nombreBaseDeDatos';
+let storeName = 'nombreObjetoAlmacenamiento';
+
+let dbRequest = indexedDB.open(dbName);
+
+dbRequest.onsuccess = function(event) {
+    let db = event.target.result;
+    let transaction = db.transaction([storeName], 'readonly');
+    let objectStore = transaction.objectStore(storeName);
+
+    let allRecordsRequest = objectStore.getAll();
+    
+    allRecordsRequest.onsuccess = function() {
+        let data = allRecordsRequest.result;
+
+        // Convertir los datos en una hoja de cálculo
+        let worksheet = XLSX.utils.json_to_sheet(data);
+        let workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Sheet1');
+
+        // Crear un archivo Excel y un enlace para descargarlo
+        let wbout = XLSX.write(workbook, { bookType: 'xlsx', type: 'binary' });
+
+        function s2ab(s) {
+            let buf = new ArrayBuffer(s.length);
+            let view = new Uint8Array(buf);
+            for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+
+        let blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+        let url = URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = dbName + '_' + storeName + '.xlsx';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+};
+
+dbRequest.onerror = function(event) {
+    console.error('Error al abrir la base de datos:', event.target.errorCode);
+};

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar Keys del Almacén de Objetos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .key-list {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="mostrarKeysBtn">Mostrar Keys</button>
+        <div id="keyList" class="key-list">
+            <!-- Aquí se mostrarán las keys -->
+        </div>
+    </div>
+
+    <script>
+        // Abre la base de datos y accede al almacén de objetos
+        function abrirIndexedDB() {
+            var solicitud = window.indexedDB.open('Cotizador', 2);
+
+            solicitud.onerror = function(evento) {
+                console.error("Error al abrir la base de datos:", evento.target.errorCode);
+            };
+
+            solicitud.onsuccess = function(evento) {
+                var db = evento.target.result;
+                mostrarKeys(db);
+            };
+
+            solicitud.onupgradeneeded = function(evento) {
+                var db = evento.target.result;
+                db.createObjectStore('items', { keyPath: 'id', autoIncrement: true });
+            };
+        }
+
+        // Obtén todas las keys del almacén de objetos y muéstralas en el div
+        function mostrarKeys(db) {
+            var transaction = db.transaction(['tablas de productos'], 'readonly');
+            var objectStore = transaction.objectStore('tablas de productos');
+            var solicitud = objectStore.getAllKeys();
+
+            solicitud.onsuccess = function(evento) {
+                var keys = evento.target.result;
+                var keyListDiv = document.getElementById('keyList');
+                keyListDiv.innerHTML = ''; // Limpiar el contenido anterior
+
+                if (keys.length === 0) {
+                    keyListDiv.innerHTML = '<p>No hay keys en el almacén de objetos.</p>';
+                } else {
+                    var ul = document.createElement('ul');
+                    keys.forEach(function(key) {
+                        var li = document.createElement('li');
+                        li.textContent = key;
+                        ul.appendChild(li);
+                    });
+                    keyListDiv.appendChild(ul);
+                }
+            };
+
+            solicitud.onerror = function(evento) {
+                console.error('Error al obtener las keys del almacén de objetos:', evento.target.error);
+            };
+        }
+
+        // Añade el evento al botón para mostrar las keys
+        document.getElementById('mostrarKeysBtn').addEventListener('click', function() {
+            abrirIndexedDB();
+        });
+    </script>
+</body>
+</html>

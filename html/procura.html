@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/v.1.0.0/css/styles_procura.css">
+    <title>Procura</title>
+</head>
+<body>
+    <main id="contenedor-principal">
+
+
+        <section id="pendientes">
+
+
+            <h4>Buscar por codigo</h4>
+
+
+            <input type="number" id="clave" name="clave" required placeholder="buscar cotizaciones" min="1" step="1" oninput="validarNumero()">
+
+
+            <button id="buscarEnBD">Buscar</button>
+
+
+            <table id="pendientes-tablas">
+                <thead id="pendientes-tablas__head">
+                    <tr>
+                        <th>
+                            # cotización
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="pendientes-tablas__body">
+                </tbody>
+            </table>
+
+
+        </section>
+
+
+        <section id="resultados">
+
+
+            <h2>Datos Almacenados</h2>
+    
+            <div id="div-resultados"></div>
+    
+            
+        </section>  
+        
+        
+    </main>
+    <footer>
+        <!-- Pie de página de tu página web -->
+        <p>Derechos de Autor © 2024. Todos los derechos reservados.</p>
+    </footer>
+    <script src="/v.1.0.0/app/app_procura.js"></script>
+</body>
+</html>

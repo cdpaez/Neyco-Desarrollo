@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/v.1.0.0/css/styles_cotizador.css">
+    <title>cotizador</title>
+</head>
+
+<body>
+
+
+    <main class="grid">
+
+
+        <div>
+
+
+            <section id="busqueda">
+
+
+                <h1>Buscar Producto por Código</h1>
+                <input type="text" id="codigoInput" placeholder="Ingrese el código">
+                <button id="btn_buscar">Buscar</button>
+
+                <h2>Resultados de la Búsqueda</h2>
+                <table id="searchResultTable">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Proveedor</th>
+                            <th>País</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultTableBody">
+                    </tbody>
+                </table>
+
+
+            </section>
+
+
+        </div>
+
+
+
+        <section id="productos">
+
+
+            <h2> Productos en Cotización <button id="btn_procura">procura</button> </h2>
+
+
+            <table id="productTable">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Proveedor</th>
+                        <th>País</th>
+                        <th>Comentario</th>
+                        <th colspan="1" id="celda-combinada">Acción</th>
+                    </tr>
+                </thead>
+
+                <tbody id="productTableBody">
+
+                </tbody>
+            </table>
+
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+        <!-- Pie de página de tu página web -->
+        <p>Derechos de Autor © 2024. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script src="/v.1.0.0/app/app_cotizar.js"></script>
+    <script src="/v.1.0.0/app/app_procura.js"></script>
+</body>
+
+
+</html>

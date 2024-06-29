@@ -1,0 +1,128 @@
+/*ajustes generales*/
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la altura de la ventana del navegador */
+    margin: 0;
+}
+main {
+    flex: 1; /* El contenido principal (main) ocupará el espacio restante */
+}
+footer {
+    flex-shrink: 0; /* Evita que el footer se reduzca en tamaño si el contenido es más largo */
+}
+
+/*estructura de la pagina*/
+#contenedor-principal{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    gap: 1rem;
+    padding: 1rem;
+    background-color:   #196f3d ;
+}
+#pendientes {
+    text-align: center;
+    background-color: #FFF; /* Fondo blanco para la sección */
+    padding: 1rem; /* Espaciado interno */
+    border-radius: 0.5px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%; /* Ancho del 80% del contenedor */
+    max-width: 600px; /* Ancho máximo de 600px */
+}
+  
+#pendientes h4 {
+    margin-bottom: 1rem; /* Espaciado inferior */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #444; /* Color de texto */
+}
+
+#pendientes input[type="number"] {
+    width: calc(100% - 10px); /* Ancho completo menos el padding */
+    padding: 0.5rem; /* Espaciado interno */
+    margin-bottom: 1rem; /* Espaciado inferior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    box-sizing: border-box; /* Incluir padding y border en el ancho */
+}
+
+#pendientes button {
+    display: block; /* Botón en bloque */
+    width: 100%; /* Ancho completo */
+    padding: 0.5rem; /* Espaciado interno */
+    background-color: #007BFF; /* Color de fondo azul */
+    color: #fff; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+#pendientes button:hover {
+    background-color: #0056b3; /* Color de fondo azul oscuro al pasar el cursor */
+}
+
+#resultados{
+    background-color: aquamarine;
+}
+
+/* esta es una tabla */
+#resultados {
+    margin: 20px auto;
+    max-width: 1000px; /* Ancho máximo para el section */
+}
+
+#resultados table {
+    width: 100%; /* La tabla ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Combinar los bordes de las celdas */
+}
+
+#resultados th,
+#resultados td {
+    padding: 10px; /* Relleno para las celdas */
+    border: 1px solid #ddd; /* Borde de las celdas */
+    text-align: center; /* Alineación del texto centrada */
+}
+
+#resultados th {
+    background-color: #28a745; /* Color de fondo para las celdas de encabezado */
+    color: #fff; /* Color de texto para las celdas de encabezado */
+}
+
+#resultados tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Color de fondo alternado para filas pares */
+}
+
+#resultados tbody tr:hover {
+    background-color: #dee2e6; /* Color de fondo al pasar el mouse */
+}
+#resultados {
+    background-color: #fff; /* Fondo blanco para la sección */
+    padding: 2rem; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 80%; /* Ancho del 80% del contenedor */
+    max-width: 800px; /* Ancho máximo de 800px */
+}
+
+#resultados h2 {
+    margin-bottom: 1rem; /* Espaciado inferior */
+    font-size: 1.5rem; /* Tamaño de fuente */
+    color: #444; /* Color de texto */
+}
+
+#resultados #datosProcura {
+    background-color: #e9ecef; /* Fondo ligeramente más oscuro para distinguir */
+}
+/*footer*/
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+}
