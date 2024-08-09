@@ -155,6 +155,7 @@ function buscarProducto() {
 
         if (productos.length === 0) {
             console.log("No se encontraron productos con el código proporcionado.");
+            alert(`el producto ${codigo} no existe en este inventario`)
         }
     };
 }

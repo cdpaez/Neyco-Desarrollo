@@ -1,68 +1,95 @@
 /*ajustes generales*/
-body{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la altura de la ventana del navegador */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-main {
-  flex: 1; /* El contenido principal (main) ocupará el espacio restante */
+body{
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 footer {
-  flex-shrink: 0; /* Evita que el footer se reduzca en tamaño si el contenido es más largo */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-body {
-  font-family: Arial, sans-serif; 
-}
-.grid{
-  flex: 1;
+.main-grid{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+    "form busqueda"
+    "form inventario";
+    gap: 1rem;
+}
+#form {
   margin-left: 1rem;
-  margin-right: 1rem;
-  font-size:xx-small;
+  padding: 0;
+  grid-area: form;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.nested-grid{
-  display: grid;
-  grid-template-rows: 100% repeat(1fr);
+#buscar {
+  margin-right: 1rem;
+  grid-area: busqueda;
+}
+#invent {
+  margin-right: 1rem;
+  grid-area: inventario;
 }
 /* estilo del section formulario*/
-#formulario {
-  margin: 20px auto;
-  max-width: 400px;
-  padding: 20px;
+#productForm {
+  margin: 1rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-#formulario h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
+#productForm h1{
+  font-size: 2vw;
+  margin: 0.5rem 0;
 }
-
-#formulario input[type="text"],
-#formulario input[type="number"] {
-  width: calc(100% - 20px);
-  padding: 10px;
-  margin-bottom: 20px;
+.div-btn-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#productForm input[type="text"],
+#productForm input[type="number"] {
+  margin: 0.2rem;
+  width: 100%;
+  padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+#descripcion {
+  margin: 0.5rem 0;
+  padding: 1rem;
+  width: 100%;
+}
 
-#formulario button {
+#productForm button {
   background-color: #007bff;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-#formulario button:hover {
+#productForm button:hover {
   background-color: #0056b3;
 }
 

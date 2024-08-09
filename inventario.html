@@ -27,18 +27,10 @@
     </nav>
         
         
-    <main class="grid">
-        
-
-        <div>
-
-
-            <section id="formulario">
-
-
-                <h1>Agregar Producto</h1>
+    <main class="main-grid">
+        <div id="form">            
                 <form id="productForm">
-
+                    <h1>Agregar Producto</h1>
 
                     <input type="text" id="codigo" name="codigo" placeholder="codigo">
     
@@ -54,30 +46,20 @@
                     
                     <input type="text" id="pais" name="pais" placeholder="pais">
                     
-                    <button onclick="agregarDatos()" id="btn-agregar">agregar datos</button>
+                    <div class="div-btn-form" id="div-btn-form">
+                        <button onclick="agregarDatos()" id="btn-agregar">agregar</button>
 
-                    <!-- Botón para importar los datos a la base de datos -->
-                    <button onclick="almacenarEnIndexedDB()">Importar a Base de Datos</button>
-                    
-                    <!-- Input para seleccionar el archivo Excel -->
-                    <input type="file" accept=".xlsx, .xls" onchange="seleccionarArchivo(event)">
-                    
-                    
+                        <!-- Botón para importar los datos a la base de datos -->
+                        <button onclick="almacenarEnIndexedDB()">Importar</button>
+                        
+                        <!-- Input para seleccionar el archivo Excel -->
+                        <input type="file" accept=".xlsx, .xls" onchange="seleccionarArchivo(event)">
+                    </div>
                     
                 </form>
-    
-    
-            </section>
-
-
         </div>
         
-
-        <div class="nested-grid">
-
-            <div>
-
-
+        <div id="buscar"">
                 <section id="busqueda">
 
 
@@ -104,45 +86,35 @@
                     </table>
                     
                     
-                </section>
+                </section>    
+        </div>    
+
+        <div id="invent">
+            <section id="productos">
 
 
-            </div>
-            
-            
-            <div>
-
-
-                <section id="productos">
+                <h2>Productos en Inventario</h2>
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Proveedor</th>
+                            <th>País</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                        <tbody id="productTableBody">
+                        </tbody>
+                    </table>
     
     
-                    <h2>Productos en Inventario</h2>
-                    <table id="productTable">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                                <th>Cantidad</th>
-                                <th>Precio</th>
-                                <th>Proveedor</th>
-                                <th>País</th>
-                                <th>Acción</th>
-                            </tr>
-                        </thead>
-                            <tbody id="productTableBody">
-                            </tbody>
-                     </table>
-        
-        
-                </section>
-    
-
-            </div>
-            
+            </section>
         </div>
-        
-            
+                
     </main>
 
 

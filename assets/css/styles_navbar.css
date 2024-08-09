@@ -3,6 +3,11 @@ nav {
     display: flex;
     width: 100%;
     background-color: #3aa5c5;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 nav ul{
     display: flex;

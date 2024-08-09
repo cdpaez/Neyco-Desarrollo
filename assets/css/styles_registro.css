@@ -1,20 +1,17 @@
 /*ajustes generales*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
   font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-height: 100vh; /* Establece la altura mínima del cuerpo al 100% de la altura de la ventana del navegador */
   margin: 0;
 }
-main {
-  flex: 1; /* El contenido principal (main) ocupará el espacio restante */
-}
-footer {
-  flex-shrink: 0; /* Evita que el footer se reduzca en tamaño si el contenido es más largo */
-}
-
 /*ajustes especificos*/
-
 main {
   display: flex;
   justify-content: center; /* Centra el contenido horizontalmente */
@@ -29,6 +26,12 @@ form {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 input[type="text"],
 input[type="password"],

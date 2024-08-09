@@ -25,6 +25,7 @@ peticion_registros.onsuccess = function(ev) {
             var password = password1;
             var transaccion = db_registros.transaction(['usuarios'], 'readwrite');
             var almacenDeObjetos = transaccion.objectStore('usuarios');
+            
             var nombre = document.getElementById('nombre').value;
             var email = document.getElementById('email').value;
             var rol = document.getElementById('roles').value;
